@@ -1,0 +1,149 @@
+\documentclass{beamer}
+\usetheme{metropolis}
+%\usecolortheme{dove}
+\usefonttheme{serif}
+
+
+\title{Build-A-Code}
+\subtitle{}
+\date{May 5, 2017}
+\author{Peter Keep}
+\institute{Moraine Valley Community College}
+\begin{document}
+
+\maketitle
+\section{The Problem}
+\begin{frame}{The Problem}
+If I start flipping a coin, which sequence of flips is more likely to occur first: HHT or HTT?\pause
+\begin{itemize}
+  \item Heads and Tails are equally likely \pause
+  \item The probability of flipping HH and HT is equally likely \pause
+  \item The wording of the question is important
+\end{itemize}
+
+\end{frame}
+
+\section{Test It!}
+
+\begin{frame}{Test It!}
+Flip your coin, and write down the results of each flip in order. Stop when you see one of these patterns:
+
+\textbf{Pattern 1:} HHT\\
+
+\textbf{Pattern 2:} HTT\\\pause
+
+\vspace{0.5cm}
+\textit{BONUS: Count the number of coin flips it takes to see either pattern.}
+\end{frame}
+
+\plain{Which pattern comes up more often?\\
+How many flips did it take?}
+
+\section{Build a Program}
+
+
+\plain{What do we need the program to do?}
+
+\begin{frame}{Flip a Coin}
+\texttt{import random}\\
+\texttt{population=[0,1]} (0=heads, 1=tails)\\
+\texttt{flip=random.choice(population)}\\
+
+
+\end{frame}
+
+\begin{frame}{Record Your Flip}
+We'll set up a list to write down our coin flips (\texttt{fliplist})
+% and a counter to record the number of flips (\texttt{i})
+.\\ \pause
+
+\vspace{0.5cm}
+This will be our initial setup BEFORE we flip.\\
+\
+\texttt{fliplist=[]}\\
+% \texttt{i=0}\\
+\pause
+
+\vspace{0.5cm}
+This is what we'll do AFTER we flip.\\
+\texttt{fliplist.append(flip)}\\
+% \texttt{i=i+1}\\
+\texttt{fliplist=fliplist[-3:]} (just look at the last 3 flips)
+\end{frame}
+
+\begin{frame}{Check the Patterns}
+Initially, we'll define our patterns (\texttt{pattern1} and \texttt{pattern2}) as well as counters for when pattern 1 or pattern 2 wins (\texttt{p1wins} and \texttt{p2wins}).
+
+% We'll also keep track of the ``winning'' lengths (\texttt{p1length} and \texttt{p2length}).\\
+
+\vspace{0.5cm}\pause
+
+\texttt{pattern1=[0,0,1]} \\
+\texttt{pattern2=[0,1,1]}\\
+\texttt{p1wins=0}\\
+\texttt{p2wins=0}\\
+% \texttt{p1length=[]}\\
+% \texttt{p2length=[]}
+
+\end{frame}
+
+\begin{frame}{Check the Patterns}
+We'll use ``if-then'' statements to add wins and lengths to the appropriate counters when either pattern shows up.\\
+\vspace{0.5cm}\pause
+
+\texttt{if fliplist==pattern1:}\\
+\hspace{0.5cm}\texttt{p1wins=p1wins+1}\\
+% \hspace{0.5cm}\texttt{p1length.append(i)}\\
+
+\vspace{0.5cm}
+
+\texttt{if fliplist==pattern2:}\\
+\hspace{0.5cm}\texttt{p2wins=p2wins+1}\\
+% \hspace{0.5cm}\texttt{p2length.append(i)}
+\end{frame}
+
+\begin{frame}{Keep Trying Until They Match}
+This is the most technical part. We're going to put most of the pieces we've build inside something called a ``while loop.'' Since we'll stop flipping whenever we see either pattern, we'll keep flipping coins whenever our \texttt{fliplist} doesn't match \texttt{pattern1} or \texttt{pattern2}.\pause
+
+\texttt{while fliplist != pattern1 and fliplist!=pattern2: }
+\end{frame}
+
+\plain{Bonus: Count the Flips!}
+
+\begin{frame}{Bonus: Count the Flips!}
+Each time we flip a coin, we should add a small counter. When we find the pattern, the counter should stop. We should store that number somewhere, and then when we're done, average the numbers for each pattern.\\ \pause
+\vspace{0.2cm}
+
+Setup: \texttt{p1length=[]}, \texttt{p2length=[]}, \texttt{i=0}\\ \pause
+\vspace{0.2cm}
+
+After each flip: \texttt{i=i+1}\\ \pause
+\vspace{0.2cm}
+
+When a pattern ``wins:'' \texttt{p1length.append(i)} or \texttt{p2length.append(i)}\\ \pause
+\vspace{0.2cm}
+
+At the end: Find the average of \texttt{p1length} and \texttt{p2length}.
+
+
+
+\end{frame}
+
+\plain{\href{https://repl.it/GbpB/1}{The Program (link)}}
+
+
+\section{Results}
+
+\begin{frame}{Results}
+  The probability of Pattern 1 showing up first is: 66.67\%\\
+  Average flips until we see Pattern 1 is: 5.67\\
+  \vspace{0.5cm}
+
+  The probability of Pattern 2 showing up first is: 33.33\%\\
+  Average flips until we see Pattern 2 is: 4.67
+\end{frame}
+
+\plain{Why?}
+
+
+\end{document}
