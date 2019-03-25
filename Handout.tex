@@ -1,9 +1,15 @@
 \documentclass[12pt]{article}
 
-\usepackage{array, amsmath, amsthm, mathtools, dsfont, amssymb}
+\usepackage{array, amsmath, amsthm, mathtools, dsfont, amssymb, multicol}
 \usepackage[margin=1in]{geometry}
 \usepackage[mathscr]{euscript}
-\usepackage{mycustom, multicol}
+
+\newcommand{\noteshead}[3]{\noindent \Vhrulefill
+
+\noindent #1 \hfill \large\textbf{#2} \hfill\normalsize #3
+
+
+	\noindent \Vhrulefill \vspace{0.5cm}}
 
 \pagenumbering{gobble}
 
@@ -11,9 +17,12 @@
 \newcolumntype{L}[1]{>{\arraybackslash}m{#1}}
 \newcolumntype{N}{@{}m{0pt}@{}}
 
+\def\Vhrulefill{\leavevmode\leaders\hrule height 0.8ex depth \dimexpr0.4pt-0.7ex\hfill\kern0pt}
+
 \begin{document}
 
 \noteshead{}{Build-A-Code Trials}{}
+
 
 \begin{tabular}{{M{2cm}L{8cm}M{2.5cm}L{2cm}N}}
 \textbf{Trial 1:} &\underline{\hspace{8cm}} &\textbf{Winning Pattern:}& \framebox(50,30){}&\\
