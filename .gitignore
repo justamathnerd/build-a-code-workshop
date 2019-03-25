@@ -9,3 +9,7 @@
 *.out
 *.snm
 *.toc
+
+# Simulation Text File #
+########################
+simulation.txt
