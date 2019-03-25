@@ -6,7 +6,7 @@ pattern2=[0,1,1] # HTT
 trials=100000
 p1wins=0 # start both win counters at 0
 p2wins=0
-p1length=[] # start both length counters at 0
+p1length=[] # these will be lists containing the amount of flips required to find the patterns
 p2length=[]
 
 for x in range(0,trials):
